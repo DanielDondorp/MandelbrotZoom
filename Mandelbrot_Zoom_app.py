@@ -82,7 +82,23 @@ class Mandelbrot_Zoom:
             x = (self.x_min + self.x_max)/2
             y = (self.y_min + self.y_max)/2
             self.zoom_in(x, y)
-            
+        elif event.key == "left":
+            self.x_min -= self.x_span/10
+            self.x_max -= self.x_span/10
+            self.draw()
+        elif event.key == "right":
+            self.x_min += self.x_span/10
+            self.x_max += self.x_span/10
+            self.draw()
+        elif event.key == "up":
+            self.y_min -= self.y_span/10
+            self.y_max -= self.y_span/10
+            self.draw()
+        elif event.key == "down":
+            self.y_min += self.y_span/10
+            self.y_max += self.y_span/10
+            self.draw()
+        
                 
     def handle_mouse_event(self, event):
         if event.dblclick:
@@ -91,4 +107,4 @@ class Mandelbrot_Zoom:
             self.zoom_in(x,y)
 if __name__ == "__main__":
     mz = Mandelbrot_Zoom()
-    plt.show(mz.fig)
+    plt.show()
