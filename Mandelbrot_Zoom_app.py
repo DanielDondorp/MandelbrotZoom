@@ -91,3 +91,4 @@ class Mandelbrot_Zoom:
             self.zoom_in(x,y)
 if __name__ == "__main__":
     mz = Mandelbrot_Zoom()
+    plt.show(mz.fig)
