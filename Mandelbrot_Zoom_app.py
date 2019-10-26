@@ -100,15 +100,15 @@ class Mandelbrot_Zoom:
             self.y_min += self.y_span/10
             self.y_max += self.y_span/10
             self.draw()
-        elif event.key == "x":
+        elif event.key == "d":
             self.savefig()
-        elif event.key == ">":
+        elif event.key == "a":
             self.cmap += 1
             if self.cmap > len(self.cmaps):
                 self.cmap = 0
             self.img.set_cmap(self.cmaps[self.cmap])
             plt.draw()
-        elif event.key == "<":
+        elif event.key == "z":
             self.cmap -= 1
             if self.cmap < 0:
                 self.cmap = len(self.cmaps)
