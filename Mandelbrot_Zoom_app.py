@@ -25,8 +25,9 @@ class Mandelbrot_Zoom:
         
         self.mb = self.get_mandelbrot()
         self.fig, self.ax = plt.subplots(figsize = (10,10))
-        self.cmap = "nipy_spectral"
-        self.img = self.ax.imshow(self.mb, cmap = self.cmap)
+        self.cmaps = dict((i, c) for i, c in enumerate(plt.colormaps()))
+        self.cmap = 62
+        self.img = self.ax.imshow(self.mb, cmap = self.cmaps[self.cmap])
         
         self.fig.canvas.mpl_connect("key_press_event", self.handle_keypress_event)
         self.fig.canvas.mpl_connect("button_press_event", self.handle_mouse_event)
@@ -101,6 +102,19 @@ class Mandelbrot_Zoom:
             self.draw()
         elif event.key == "x":
             self.savefig()
+        elif event.key == ">":
+            self.cmap += 1
+            if self.cmap > len(self.cmaps):
+                self.cmap = 0
+            self.img.set_cmap(self.cmaps[self.cmap])
+            plt.draw()
+        elif event.key == "<":
+            self.cmap -= 1
+            if self.cmap < 0:
+                self.cmap = len(self.cmaps)
+            self.img.set_cmap(self.cmaps[self.cmap])
+            plt.draw()
+            
                 
     def handle_mouse_event(self, event):
         if event.dblclick:
