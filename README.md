@@ -33,6 +33,8 @@ python Mandelbrot_Zoom_app.py
 
 \* this changes how many iterations are calculated to create the image.
 
+![example1](./examples/example1.png)
+
 
 ### Notebooks
 The notebooks in this repository offer implementations of this program that run in a jupyter notebook. Mandelbrot_notebook.ipynb offers control of colormaps, iterations and resolution using ipywidgets. The controls are slightly different but pretty intuitive. Zoom in and out with left and right clicks, and do the rest with widgets.
