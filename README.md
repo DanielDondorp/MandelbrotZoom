@@ -4,6 +4,23 @@
 # MandelbrotZoom
 Simple python app to explore the mandelbrot set
 
+### Getting started
+
+Clone this repository by downloading and extracting the zip or by running
+```
+git clone https://github.com/DanielDondorp/MandelbrotZoom.git
+```
+Go into the directory and install the dependencies. I recommend installing into a virtual environment.
+``` 
+cd MandelbrotZoom
+pip install -r requirements.txt
+```
+
+Run the program:
+```
+python Mandelbrot_Zoom_app.py
+```
+
 ### Controls:
 
 * `arrow keys` for panning
