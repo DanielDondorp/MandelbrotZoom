@@ -34,6 +34,9 @@ python Mandelbrot_Zoom_app.py
 \* this changes how many iterations are calculated to create the image.
 
 ![example1](./examples/example1.png)
+![example2](./examples/example2.png)
+![example3](./examples/example3.png)
+
 
 
 ### Notebooks
