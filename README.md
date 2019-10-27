@@ -29,7 +29,10 @@ python Mandelbrot_Zoom_app.py
 * `page up` and `page down` to change resolution \*
 * `a` and `z` to change colormap
 * `d` to save the current view as png
-* `double-click` on a region to zoom specifically there \**
+* `double-click` on a region to zoom specifically there
 
 \* this changes how many iterations are calculated to create the image.
-\** this does not work in the notebook or binder version
+
+
+### Notebooks
+The notebooks in this repository offer implementations of this program that run in a jupyter notebook. Mandelbrot_notebook.ipynb offers control of colormaps, iterations and resolution using ipywidgets. The controls are slightly different but pretty intuitive. Zoom in and out with left and right clicks, and do the rest with widgets.
