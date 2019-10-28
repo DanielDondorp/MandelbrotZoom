@@ -123,7 +123,7 @@ class Mandelbrot_Zoom:
             self.zoom_in(x,y)
             
     def savefig(self):
-        plt.imsave("mb_img.png", self.mb, dpi = 600, cmap = self.cmap)
+        plt.imsave(f"mb_img_{self.x_min}_{self.x_max}_{self.y_min}_{self.y_max}.png", self.mb, dpi = 600, cmap = self.cmaps[self.cmap])
         
 if __name__ == "__main__":
     mz = Mandelbrot_Zoom()
