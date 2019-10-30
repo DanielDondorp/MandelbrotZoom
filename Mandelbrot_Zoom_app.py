@@ -8,11 +8,13 @@ Created on Fri Oct 25 21:01:40 2019
 
 import numpy as np
 import matplotlib.pyplot as plt
-from mandelbrot import calculate_mandelbrot_set
+from mandelbrot import calculate_mandelbrot_set, calculate_mandelbrot_set_slow, calculate_mandelbrot_set_very_slow
 
 
 class Mandelbrot_Zoom:
     def __init__(self):
+        
+        self.mandelbrot_function = calculate_mandelbrot_set
         self.x_min = -2
         self.x_max = 0.5
         self.y_min = -1.25
@@ -36,7 +38,7 @@ class Mandelbrot_Zoom:
         return (x-in_min) * (out_max-out_min) / (in_max-in_min) + out_min
     
     def get_mandelbrot(self):
-        return calculate_mandelbrot_set(self.x_min, self.x_max,
+        return self.mandelbrot_function(self.x_min, self.x_max,
                                            self.y_min, self.y_max,
                                            self.side, self.side, self.n_iter)
     
@@ -45,6 +47,7 @@ class Mandelbrot_Zoom:
         self.img.set_data(self.mb)
         self.img.autoscale()
         plt.draw()
+    
         
     def zoom_in(self, x, y):
         self.x_span = np.abs(self.x_max - self.x_min) * 0.5
@@ -115,9 +118,24 @@ class Mandelbrot_Zoom:
             self.img.set_cmap(self.cmaps[self.cmap])
             plt.draw()
             
+        elif event.key == "1":
+            self.mandelbrot_function = calculate_mandelbrot_set
+            print(self.mandelbrot_function)
+            self.draw()
+        elif event.key == "2":
+            self.mandelbrot_function = calculate_mandelbrot_set_slow
+            print(self.mandelbrot_function)
+            self.draw()
+        elif event.key == "3":
+            self.mandelbrot_function = calculate_mandelbrot_set_very_slow
+            print(self.mandelbrot_function)
+            self.draw()
+            
                 
     def handle_mouse_event(self, event):
         if event.dblclick:
+            self.ax.set_title(event.xdata)
+            plt.draw()
             x = self.map_value(event.xdata, 0, self.side, self.x_min, self.x_max)
             y = self.map_value(event.ydata, 0, self.side, self.y_min, self.y_max)            
             self.zoom_in(x,y)
